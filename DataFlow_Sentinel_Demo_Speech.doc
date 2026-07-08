@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DataFlow Sentinel Demo Speech</title>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; color:#1f2933; line-height:1.45; font-size:11pt; }
+h1 { font-size:22pt; color:#111111; border-bottom:4px solid #ffe600; padding-bottom:8px; margin-top:0; }
+h2 { font-size:15pt; color:#111111; margin-top:20px; border-bottom:1px solid #d7dce2; padding-bottom:4px; }
+p { margin:7px 0; }
+.brand { color:#5c6670; font-size:9.5pt; margin-bottom:18px; }
+.meta { background:#f6f8fa; border:1px solid #e2e8f0; padding:8px 10px; margin:10px 0 18px 0; }
+.bullet { margin-left:18px; }
+.footer { margin-top:28px; color:#5c6670; font-size:9pt; border-top:2px solid #ffe600; padding-top:8px; }
+</style>
+</head>
+<body>
+<h1>DataFlow Sentinel Demo Speech</h1>
+<div class="brand">EY Confidential | DataFlow Sentinel SSIS Lineage Accelerator | (c) 2026 EY. All rights reserved.</div>
+<div class="meta">
+<p><b>Suggested duration:</b> 6 to 8 minutes</p>
+<p><b>Tone:</b> Simple business English, demo-ready, Indian presentation style</p>
+</div>
+
+<h2>Opening</h2>
+<p>Good morning everyone.</p>
+<p>Today I am going to present a tool called DataFlow Sentinel.</p>
+<p>This tool is built to simplify SSIS package analysis and broaden the scope of lineage analysis beyond normal SQL extraction.</p>
+<p>In many projects, we have hundreds or sometimes thousands of SSIS packages. If we want to understand which package is reading which table, which package is loading which target, or what will be the impact if one table or column changes, the analysis becomes very manual and time consuming.</p>
+<p>So DataFlow Sentinel is designed to reduce that manual effort and provide a structured, searchable, and visual view of SSIS lineage.</p>
+
+<h2>What Is This Tool</h2>
+<p>DataFlow Sentinel is an SSIS lineage and impact analysis accelerator.</p>
+<p>It reads DTSX packages and automatically extracts the important technical details from them.</p>
+<p>It gives us package-level lineage, table-level lineage, data flow details, dependency graph, SSIS-like flow diagrams, non-SQL task coverage, and optional column-level lineage.</p>
+<p>In simple words, instead of opening each SSIS package manually in Visual Studio and checking every task, this tool gives us a consolidated view in Excel and HTML reports.</p>
+
+<h2>Problem It Is Solving</h2>
+<p>The main problem this tool is solving is manual SSIS analysis.</p>
+<p>In a typical legacy estate, SSIS packages are complex. Logic can be present in many places:</p>
+<p class="bullet">&bull; Execute SQL Tasks.</p>
+<p class="bullet">&bull; Data Flow Tasks.</p>
+<p class="bullet">&bull; Variables.</p>
+<p class="bullet">&bull; Source and destination components.</p>
+<p class="bullet">&bull; Derived columns.</p>
+<p class="bullet">&bull; Lookups.</p>
+<p class="bullet">&bull; Merge joins.</p>
+<p class="bullet">&bull; Conditional splits.</p>
+<p class="bullet">&bull; Script Tasks.</p>
+<p class="bullet">&bull; Bulk Insert Tasks.</p>
+<p class="bullet">&bull; Execute Package Tasks.</p>
+<p class="bullet">&bull; File connections.</p>
+<p>If we check this manually, it takes a lot of time and there is always a chance of missing something.</p>
+<p>Another problem is impact analysis.</p>
+<p>For example, if a table is changing, we need to know which packages are reading that table, which packages are writing to that table, which downstream packages may get impacted, and whether the table is used as source, target, lookup, or staging.</p>
+<p>DataFlow Sentinel helps to answer these questions quickly.</p>
+
+<h2>Core Features</h2>
+<p>The first core feature is the dependency graph.</p>
+<p>The tool identifies package-to-package dependencies based on common tables. If one package writes a table and another package reads the same table, the tool can show that dependency. This helps us understand upstream and downstream impact.</p>
+<p>The second feature is Data Flow Task analysis.</p>
+<p>Data Flow Task is where many important SSIS transformations are present. The tool reads source, destination, lookup, merge join, derived column, aggregate, union all, sort, multicast, data conversion, and other transformation components.</p>
+<p>The third feature is the SSIS-like flow diagram.</p>
+<p>This is very helpful because it gives a visual understanding similar to the SSIS design view. So even if a person is not deeply technical, they can still understand the package movement visually.</p>
+<p>The fourth feature is non-SQL task coverage.</p>
+<p>Many times, important logic is not only in SQL. It may be inside Script Task, Execute Process Task, Execute Package Task, Bulk Insert Task, or file system related operations. This tool captures those also and highlights them for review.</p>
+<p>The fifth feature is table and column journey tracking.</p>
+<p>This is an optional add-on. With this, we can search a table or column and see its upstream and downstream movement across packages. If exact column lineage is available, it shows exact evidence. If only table-level evidence is available, it shows that as fallback evidence.</p>
+<p>The sixth feature is Excel and HTML reporting.</p>
+<p>Excel is useful for audit, review, and offline filtering. HTML is useful for interactive analysis and demos.</p>
+
+<h2>Use Case</h2>
+<p>There are many practical use cases.</p>
+<p>First is migration. If we are migrating SSIS to another platform, like Azure Data Factory, Databricks, PySpark, or any modern ETL platform, we need to understand the existing logic properly. This tool gives a good starting point for that assessment.</p>
+<p>Second is impact analysis. If a table, column, or package is changing, we can quickly identify impacted packages and downstream dependencies.</p>
+<p>Third is documentation. Many legacy SSIS systems do not have updated documentation. This tool can generate documentation automatically from the actual DTSX packages.</p>
+<p>Fourth is production support. When a data issue happens, support teams can trace which package loaded the data and which downstream package consumed it.</p>
+<p>Fifth is audit and control review. The tool can show source tables, target tables, file movements, script tasks, and package dependencies in a structured way.</p>
+
+<h2>Who Can Use This Tool</h2>
+<p>This tool can be used by multiple teams.</p>
+<p>Data engineers can use it to understand package logic and data movement.</p>
+<p>ETL developers can use it for migration and change impact.</p>
+<p>Support teams can use it during production issue analysis.</p>
+<p>Architects can use it to understand overall system dependency.</p>
+<p>Business analysts can use the Excel report to understand table usage without opening technical SSIS packages.</p>
+<p>Project managers and senior stakeholders can use summary views to understand complexity, scope, and migration effort.</p>
+
+<h2>Benefits</h2>
+<p>The key benefit is time saving.</p>
+<p>Instead of manually opening packages one by one, the tool scans the folder and generates reports automatically.</p>
+<p>Second benefit is better accuracy. Because the tool reads the DTSX XML directly, it reduces manual checking errors.</p>
+<p>Third benefit is faster impact analysis. We can search table, package, or column and quickly understand where it is used.</p>
+<p>Fourth benefit is better migration readiness. Before migration, we can identify package complexity, source-target mapping, dependencies, non-SQL tasks, and areas that need manual review.</p>
+<p>Fifth benefit is better communication. The generated reports and diagrams help technical and non-technical stakeholders discuss the same package logic in a common format.</p>
+
+<h2>Light Technical Details</h2>
+<p>At a technical level, the tool is built in Python.</p>
+<p>It reads DTSX files, which are XML-based SSIS package files.</p>
+<p>The GUI collects input folder, output folder, helper file, and processing options.</p>
+<p>Then the backend parser reads each DTSX package and creates structured Python objects for connections, variables, Data Flow Tasks, SQL Tasks, components, paths, and lineage edges.</p>
+<p>After parsing, the tool builds package-level table read and write information.</p>
+<p>Then it calculates dependencies across packages.</p>
+<p>Finally, it generates Excel reports, package HTML reports, master HTML report, optional SQLite index, and optional journey tracker output.</p>
+<p>The design is modular. Optional features like column lineage and journey tracker can be enabled or disabled, so the base tool can still run normally.</p>
+
+<h2>Demo Walkthrough</h2>
+<p>In the demo, I will show the following flow.</p>
+<p>First, I will open the DataFlow Sentinel application.</p>
+<p>Then I will select the folder where DTSX packages are present.</p>
+<p>After that, I will select the output folder.</p>
+<p>If required, I can also provide a helper file for database, schema, and table mapping.</p>
+<p>Then I will show the processing options, like worker count, graph threshold, keyword search, column lineage, and journey tracker.</p>
+<p>Once I click Start Processing, the tool will scan the packages and generate the reports.</p>
+<p>After completion, I will open the master HTML report.</p>
+<p>In the master report, we can see package summary, package table, search, and dependency graph.</p>
+<p>Then I will open an individual package report.</p>
+<p>There we can see package metadata, connections, variables, Data Flow Tasks, SQL Tasks, non-SQL scripts, file sources and destinations, and SSIS-like flow diagram.</p>
+<p>Then I will show the dependency graph, where we can understand upstream and downstream packages.</p>
+<p>Finally, I will show the table and column journey tracker, where we can search a table or column and see how it travels across packages.</p>
+
+<h2>Closing</h2>
+<p>To summarize, DataFlow Sentinel helps us convert SSIS package analysis from a manual activity into a structured and automated analysis process.</p>
+<p>It helps in lineage analysis, dependency analysis, migration planning, audit support, and production support.</p>
+<p>The main value is that it gives both technical depth and stakeholder-friendly visibility.</p>
+<p>So instead of only saying that a package is using a table, we can show the complete journey, the flow diagram, the dependency, and the supporting evidence.</p>
+<p>Thank you. I will now walk through the demo.</p>
+
+<div class="footer">EY Confidential | DataFlow Sentinel SSIS Lineage Accelerator | (c) 2026 EY. All rights reserved.</div>
+</body>
+</html>
